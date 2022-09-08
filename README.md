@@ -24,26 +24,38 @@ The programmable hardware currently used on the confocal microscope in QT3 (Sep 
   * Quantum Composer Sapphire 4-channel TTL pulse generator
   * Spin Core Pulse Blaster
 
-Additionally, the Jena Systems's Piezo Actuator stage can be controlled via
-the NIDAQ, and switches for an AOM and microwave amplifier can be controlled
-via TTL pulses.
+Additionally
 
-The Excelitas SPCM is the photon detector used in the lab. The SCPM produces a 50 ns
-TTL pulse upon the detection of a photon. The TTL pulse is connected via BNC to
-a digital input channel on the NI-DAQ. The `qt3utils` software configures readout of this
-digital input channel and can return raw counts as well as count rate. Since the SPCM
-couples to the NIDAQ via TTL pulses over BNC, any other photon detector that produces
-the same signal can be utilized.
+  * Jena Systems's Piezo Actuator stage controlled via NIDAQ
+  * TTL pulses control
+    * switch for AOM
+    * switch for microwave amplifier
 
-Finally, to ensure robust data acquisition, TTL pulses are generated to provide a clock and
-trigger of the NIDAQ. (As of now, only the QC Sapphire is programmed for performing this.)
+The Excelitas SPCM is the photon detector used in the lab, which
+
+  * produces 50 ns TTL pulse output / photon.
+  * connects via BNC to digital input on NIDAQ
+
+The `qt3utils` software configures readout of NIDAQ and can return
+
+  * raw counts
+  * count rate.
+
+SPCM can be swapped out for any photon detector that delievers TTL pulses over BNC.
+
+Finally,TTL pulses are also used to provide
+
+ * clock signal
+ * trigger signal
+
+to the NIDAQ.
 
 ## Overview of Packages
 
 The following packages have been developed
 
 * [qt3-utils](https://github.com/gadamc/qt3utils)
-* [qt3RFSynthControl](https://github.com/gadamc/qt3RFSynthControl)
+* [qt3rfsynthcontrol](https://github.com/gadamc/qt3RFSynthControl)
 * [qcsapphire](https://github.com/gadamc/qcsapphire)
 * [nipiezeojenapy](https://github.com/gadamc/nipiezeojenapy)
 * [pulseblaster](https://github.com/zeeshawnkazi/pulseblaster)
@@ -187,7 +199,7 @@ The QC Sapphire is used extensively in the standard `qt3-utils` experiment objec
 
 ### Windfreak RF Synthesizer Control
 
-The [qt3RFSynthControl](https://github.com/gadamc/qt3RFSynthControl)
+The [qt3rfsynthcontrol](https://github.com/gadamc/qt3RFSynthControl)
 package provides high-level objects to programmatically control the Windfreak RF Synthesizer Pro.
 Like the QC Sapphire pulser, this package is used extensively within the standard
 experiment classes found in `qt3-utils`.
