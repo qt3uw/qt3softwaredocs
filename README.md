@@ -32,6 +32,7 @@ Additionally, there are
   * Excelitas SPCM photon detector, which
     * produces 50 ns TTL pulse output / photon
     * connects via BNC to digital input on NIDAQ
+  * Arduino-controlled Neutral Density wheel for laser power control
 
 The `qt3utils` software configures readout of NIDAQ and can return raw counts
 or count rates of the input TTL signal from the SPCM.  
@@ -52,6 +53,7 @@ The following packages have been developed
 * [qcsapphire](https://github.com/gadamc/qcsapphire)
 * [nipiezeojenapy](https://github.com/gadamc/nipiezeojenapy)
 * [pulseblaster](https://github.com/zeeshawnkazi/pulseblaster)
+* [qt3laserpowercontrol](https://github.com/gadamc/qt3laserpowercontrol)
 
 ### QT3-Utils
 
@@ -214,10 +216,10 @@ The [pulseblaster](https://github.com/zeeshawnkazi/pulseblaster) has yet to be
 used on the confocal setup, but will soon be incorporated into the standard
 experiment classes.
 
-## Next Steps
+### QT3 Laser Power Control
 
-1. Team Review of software & documentation
-  * do the names of applications and classes make sense?
-2. Build laser power monitoring / control package
-  * programmatic access to controlling laser power would be useful
-3. Update qt3-utils to support the Pulse Blaster
+The [qt3laserpowercontrol](https://github.com/gadamc/qt3laserpowercontrol) aims
+to provide the experimenter with control of laser power via an ND wheel placed
+in the path of the laser. The position of the ND wheel is controlled by an
+applied voltage, supplied by a programmable Arduino board. At the moment,
+this tool is accessible through a GUI interface.  
