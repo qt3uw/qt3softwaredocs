@@ -24,26 +24,20 @@ The programmable hardware currently used on the confocal microscope in QT3 (Sep 
   * Quantum Composer Sapphire 4-channel TTL pulse generator
   * Spin Core Pulse Blaster
 
-Additionally
+Additionally, there are
 
   * Jena Systems's Piezo Actuator stage controlled via NIDAQ
-  * TTL pulses control
-    * switch for AOM
-    * switch for microwave amplifier
+  * AOM switch controlled by TTL
+  * Microwave amplifier controlled by TTL
+  * Excelitas SPCM photon detector, which
+    * produces 50 ns TTL pulse output / photon
+    * connects via BNC to digital input on NIDAQ
 
-The Excelitas SPCM is the photon detector used in the lab, which
+The `qt3utils` software configures readout of NIDAQ and can return raw counts
+or count rates of the input TTL signal from the SPCM. The SPCM can be swapped
+out for any photon detector that delivers TTL pulses over BNC.
 
-  * produces 50 ns TTL pulse output / photon.
-  * connects via BNC to digital input on NIDAQ
-
-The `qt3utils` software configures readout of NIDAQ and can return
-
-  * raw counts
-  * count rate.
-
-SPCM can be swapped out for any photon detector that delievers TTL pulses over BNC.
-
-Finally,TTL pulses are also used to provide
+Finally, TTL pulses are also used to provide
 
  * clock signal
  * trigger signal
@@ -76,12 +70,12 @@ that experimenters will interact with directly. The `qt3utils` package provides
 
 ##### GUI Application: QT3Scope
 
-The `qt3scope` measures a TTL signal count rate to a digital input channel on
+The `qt3scope` measures the event rate of a TTL pulse connected to a digital input channel on
 the NIDAQ as a function of time (and appears as an oscilloscope that is
-measuring a voltage that is proportional to the count rate)
+measuring a voltage proportional to the count rate)
 
 The `qt3-utils` package installs the `qt3scope` application and is launched
-from the command-line. On Windows, the Anaconda Powershell application has been used.
+from the command-line (on Windows, the Anaconda Powershell has been used). 
 
 ```
 > qt3scope
@@ -93,9 +87,9 @@ NB: The data shown here are randomly generated values and the GUI style will be 
 
 ##### GUI Application: QT3Scan
 
-The `qt3scan`, installed by `qt3-utils`, measures a TTL signal count rate to a
-digital input channel on the NIDAQ as a function of position, as controlled by
-the Jena Piezo controller.
+The `qt3scan`, installed by `qt3-utils`, measures the event rate of a TTL pulse
+connected to a digital input channel on the NIDAQ as a function of position,
+as controlled by the Jena Piezo controller.
 
 ```
 > qt3scan
