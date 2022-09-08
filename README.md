@@ -27,17 +27,16 @@ The programmable hardware currently used on the confocal microscope in QT3 (Sep 
 Additionally, there are
 
   * Jena Systems's Piezo Actuator stage controlled via NIDAQ
-  * AOM switch controlled by TTL
-  * Microwave amplifier controlled by TTL
+  * AOM driver controlled by TTL
+  * Microwave switch controlled by TTL
   * Excelitas SPCM photon detector, which
     * produces 50 ns TTL pulse output / photon
     * connects via BNC to digital input on NIDAQ
 
 The `qt3utils` software configures readout of NIDAQ and can return raw counts
-or count rates of the input TTL signal from the SPCM. The SPCM can be swapped
-out for any photon detector that delivers TTL pulses over BNC.
+or count rates of the input TTL signal from the SPCM.  
 
-Finally, TTL pulses are also used to provide
+Finally, TTL pulses provided by the QC Sapphire (or Pulse Blaster) are used to provide
 
  * clock signal
  * trigger signal
@@ -201,7 +200,7 @@ The following provides a short example of usage
 
 ```python
 import qt3rfsynthcontrol
-rf_synth = qt3rfsynthcontrol.Pulser('COM5')
+rf_synth = qt3rfsynthcontrol.QT3SynthHD('COM5')
 
 rf_synth.rf_off(0) #0 = channel A, 1 = channel B
 rf_synth.set_power(-5) #dbmW
