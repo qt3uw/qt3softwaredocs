@@ -71,11 +71,10 @@ that experimenters will interact with directly. The `qt3utils` package provides
 ##### GUI Application: QT3Scope
 
 The `qt3scope` measures the event rate of a TTL pulse connected to a digital input channel on
-the NIDAQ as a function of time (and appears as an oscilloscope that is
-measuring a voltage proportional to the count rate)
+the NIDAQ as a function of time (and appears like an oscilloscope)
 
 The `qt3-utils` package installs the `qt3scope` application and is launched
-from the command-line (on Windows, the Anaconda Powershell has been used). 
+from the command-line (on Windows, the Anaconda Powershell has been used).
 
 ```
 > qt3scope
