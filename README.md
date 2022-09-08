@@ -57,7 +57,7 @@ that experimenters will interact with directly. The `qt3utils` package provides
   * high level objects for data acquisition
     * raw data sampler
     * piezo scanner
-  * "canned" experiment objects (CWODMR, Rabi, pulsed-ODMR, etc)
+  * "standard" experiment objects (CWODMR, Rabi, pulsed-ODMR, etc)
   * GUI applications
     * qt3scope
     * qt3scan
@@ -77,6 +77,8 @@ from the command-line. On Windows, the Anaconda Powershell application has been 
 
 ![QT3Scope](qt3scope.png)
 
+NB: The data shown here are randomly generated values and the GUI style will be different on Windows
+
 ##### GUI Application: QT3Scan
 
 The `qt3scan`, installed by `qt3-utils`, measures a TTL signal count rate to a
@@ -89,6 +91,7 @@ the Jena Piezo controller.
 
 ![QT3Scan](qt3scan.png)
 
+NB: The data shown here are randomly generated values and the GUI style will be different on Windows
 
 While `qt3scan` and `qt3scope` can run simultaneously, they cannot sample data
 from the NIDAQ simultaneously. One must stop acquisition in one application before
@@ -98,10 +101,12 @@ displayed in the console / shell.
 
 #### Programmatic Usage
 
-Potentially more useful are the high level software objects that interact with the
+Potentially more useful than the GUIs are the high level software objects that interact with the
 hardware and provide methods for data acquisition. This will support
 long running or more advanced experiments. These mid- and high-level objects
 found in the following examples are also used as the foundational pieces for the GUI applications.
+These high level objects are useful within Jupyter notebooks, allowing the
+experimenter full control and visualization.
 
 * [CWODMR](https://github.com/gadamc/qt3-utils/blob/main/examples/default_cwodmr.ipynb)
 * [Pulsed-ODMR](https://github.com/gadamc/qt3-utils/blob/main/examples/default_podmr.ipynb)
@@ -112,7 +117,7 @@ found in the following examples are also used as the foundational pieces for the
 
 The `nipiezeojenapy` package controls the Jena piezo stage controller via the NIDAQ.
 
-The package software is quite simple and can be used entirely stand-alone.
+The software is quite simple and can be used entirely stand-alone.
 
 https://github.com/gadamc/nipiezeojenapy
 
@@ -133,13 +138,16 @@ pcon.get_current_position()
 
 #### GUI Application: QT3Piezo
 
-This application is launched from the command-line / powershell.
+The `nipiezojenapy` package installs the `qt3piezo` application, which
+is launched from the command-line / powershell.
 
 ```
 > qt3piezo
 ```
 
 ![QT3Piezo](qt3piezo.png)
+
+NB: The GUI style will be different on Windows
 
 It should also be noted that `nipiezojenapy` does NOT block usage of the NIDAQ
 to other programs. Thus, one can use this GUI application in conjunction
@@ -152,7 +160,7 @@ The QC Sapphire TTL pulser can be controlled through a purely Pythonic API.
 
 The [GH repo provides full documentation](https://github.com/gadamc/qcsapphire).
 
-From that documentation, the following quick example shows the usage
+From that documentation, the following example shows one simple usage
 
 ```python
 import qcsapphire
@@ -162,8 +170,7 @@ pulser = qcsapphire.Pulser('COM6')
 total_width = 10e-6 #in seconds
 pulser.system.period(total_width)
 
-#use channel B for RF switch and use 'normal' mode
-channel = pulser.channel('B')
+channel = pulser.channel('B') #QC Sapphire channel B is connected to the MW amplifier switch
 channel.mode('normal')
 
 #create a 5 microsecond pulse
@@ -175,14 +182,14 @@ channel.state(1)
 pulser.system.state(1) #start the pulser
 ```
 
-The QC Sapphire is used extensively in the canned `qt3-utils` experiment objects.
+The QC Sapphire is used extensively in the standard `qt3-utils` experiment objects.
 
 
 ### Windfreak RF Synthesizer Control
 
 The [qt3RFSynthControl](https://github.com/gadamc/qt3RFSynthControl)
 package provides high-level objects to programmatically control the Windfreak RF Synthesizer Pro.
-Like the QC Sapphire pulser, this package is used extensively within the canned
+Like the QC Sapphire pulser, this package is used extensively within the standard
 experiment classes found in `qt3-utils`.
 
 The following provides a short example of usage
@@ -200,10 +207,13 @@ rf_synth.rf_on(1)
 ### Spin Core Pulse Blaster
 
 The [pulseblaster](https://github.com/zeeshawnkazi/pulseblaster) has yet to be
-used on the confocal setup.
+used on the confocal setup, but will soon be incorporated into the standard
+experiment classes.
 
 ## Next Steps
 
-1. Verify naming of objects and applications
+1. Team Review of software & documentation
+  * do the names of applications and classes make sense?
 2. Build laser power monitoring / control package
+  * programmatic access to controlling laser power would be useful
 3. Update qt3-utils to support the Pulse Blaster
