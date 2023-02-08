@@ -1,19 +1,10 @@
 # Software for the Quantum Technologies Teaching and Test-Bed (QT3) Laboratory
 
 This provides a brief overview of the Python-based software available to run
-experiments in the QT3 Lab. These tools were developed for the confocal
+experiments in the QT3 Lab. These tools were developed for the Quantum Light Microscope
 microscope and its specific set of hardware. However, many of these
-components should be reusable on other microscopes with similar setups.
+components should be reusable on other microscopes with similar hardware.
 
-### Goals
-
-There were a number of development goals when the QT3 software construction began.
-
-  * Python package delivery
-  * foundational API for extended development by lab and community members
-  * general support for hardware configuration
-  * well written documentation
-  * basic GUI applications
 
 ## Hardware
 
@@ -48,16 +39,16 @@ to the NIDAQ.
 
 The following packages have been developed
 
-* [qt3-utils](https://github.com/gadamc/qt3utils)
-* [qt3rfsynthcontrol](https://github.com/gadamc/qt3RFSynthControl)
-* [qcsapphire](https://github.com/gadamc/qcsapphire)
-* [nipiezeojenapy](https://github.com/gadamc/nipiezeojenapy)
+* [qt3-utils](https://github.com/qt3uw/qt3utils)
+* [qt3rfsynthcontrol](https://github.com/qt3uw/qt3RFSynthControl)
+* [qcsapphire](https://github.com/qt3uw/qcsapphire)
+* [nipiezeojenapy](https://github.com/qt3uw/nipiezeojenapy)
 * [pulseblaster](https://github.com/zeeshawnkazi/pulseblaster)
-* [qt3laserpowercontrol](https://github.com/gadamc/qt3laserpowercontrol)
+* [qt3laserpowercontrol](https://github.com/qt3uw/qt3laserpowercontrol)
 
 ### QT3-Utils
 
-The [`qt3-utils` package](https://github.com/gadamc/qt3-utils) is the primary package
+The [`qt3-utils` package](https://github.com/qt3uw/qt3-utils) is the primary package
 that experimenters will interact with directly. The `qt3utils` package provides
 
   * NIDAQ configuration (via `nidaqmx`)
@@ -68,6 +59,10 @@ that experimenters will interact with directly. The `qt3utils` package provides
   * GUI applications
     * qt3scope
     * qt3scan
+
+Installation of `qt3-utils` will result in the installation of all packages described in
+this document **except for qt3laserpowercontrol**.
+See [software-environment-setup.md](software-environment-setup.md)
 
 ##### GUI Application: QT3Scope
 
@@ -114,10 +109,10 @@ found in the following examples are also used as the foundational pieces for the
 These high level objects are useful within Jupyter notebooks, allowing the
 experimenter full control and visualization.
 
-* [CWODMR](https://github.com/gadamc/qt3-utils/blob/main/examples/default_cwodmr.ipynb)
-* [Pulsed-ODMR](https://github.com/gadamc/qt3-utils/blob/main/examples/default_podmr.ipynb)
-* [Rabi](https://github.com/gadamc/qt3-utils/blob/main/examples/default_rabi.ipynb)
-* [Confocal-Scan](https://github.com/gadamc/qt3-utils/blob/main/examples/confocal-scan.ipynb)
+* [CWODMR](https://github.com/qt3uw/qt3-utils/blob/main/examples/default_cwodmr.ipynb)
+* [Pulsed-ODMR](https://github.com/qt3uw/qt3-utils/blob/main/examples/default_podmr.ipynb)
+* [Rabi](https://github.com/qt3uw/qt3-utils/blob/main/examples/default_rabi.ipynb)
+* [Confocal-Scan](https://github.com/qt3uw/qt3-utils/blob/main/examples/confocal-scan.ipynb)
 
 ### Piezo Control
 
@@ -125,7 +120,7 @@ The `nipiezeojenapy` package controls the Jena piezo stage controller via the NI
 
 The software is quite simple and can be used entirely stand-alone.
 
-https://github.com/gadamc/nipiezeojenapy
+https://github.com/qt3uw/nipiezeojenapy
 
 For example
 
@@ -164,7 +159,7 @@ with `qt3scope` and `qt3scan` while they are running.
 
 The QC Sapphire TTL pulser can be controlled through a purely Pythonic API.
 
-The [GH repo provides full documentation](https://github.com/gadamc/qcsapphire).
+The [GH repo provides full documentation](https://github.com/qt3uw/qcsapphire).
 
 From that documentation, the following example shows one simple usage
 
@@ -193,7 +188,7 @@ The QC Sapphire is used extensively in the standard `qt3-utils` experiment objec
 
 ### Windfreak RF Synthesizer Control
 
-The [qt3rfsynthcontrol](https://github.com/gadamc/qt3RFSynthControl)
+The [qt3rfsynthcontrol](https://github.com/qt3uw/qt3RFSynthControl)
 package provides high-level objects to programmatically control the Windfreak RF Synthesizer Pro.
 Like the QC Sapphire pulser, this package is used extensively within the standard
 experiment classes found in `qt3-utils`.
@@ -212,13 +207,12 @@ rf_synth.rf_on(1)
 
 ### Spin Core Pulse Blaster
 
-The [pulseblaster](https://github.com/zeeshawnkazi/pulseblaster) has yet to be
-used on the confocal setup, but will soon be incorporated into the standard
-experiment classes.
+The [pulseblaster](https://github.com/qt3uw/pulseblaster) comes installed
+via qt3-utils. Usage can be found in the qt3utils example folder.
 
 ### QT3 Laser Power Control
 
-The [qt3laserpowercontrol](https://github.com/gadamc/qt3laserpowercontrol) aims
+The [qt3laserpowercontrol](https://github.com/qt3uw/qt3laserpowercontrol) aims
 to provide the experimenter with control of laser power via an ND wheel placed
 in the path of the laser. The position of the ND wheel is controlled by an
 applied voltage, supplied by a programmable Arduino board. At the moment,
