@@ -73,8 +73,17 @@ Development after this step is up to you. You can install PyCharm or VSCode from
 Anaconda, or work with something lighter like Atom.
 
 
+#### Laser Power Control
+
+Control of laser power via ND filter wheel is done using 
+[qt3laserpowercontrol](https://github.com/qt3uw/qt3laserpowercontrol). This software 
+controls an ARDIUNO board that is connected via USB. The software needs to be 
+installed onto the ARDUINO board and then launched separately from the command line.
+
 ##### Production Conda Environment Snapshots
 
-The following links to minimal conda environments on the QLM machine that were known to work. These environments pin down specific versions of software and should be able to recreate environments
+The following links to minimal conda environments on the QLM machine that were 
+known to work. These environments pin down specific versions of software and should 
+be able to recreate environments
 
 * [Feb 8 2023](qt3prod_2023_Feb_8.yaml)
