@@ -36,8 +36,7 @@ use, these drivers are likely already installed.
 
 #### Production Environment Setup
 
-Once the NIDAQ and SpinCore drivers are installed, installation of the python
-software should be straight forward from the command-line.
+Once the NIDAQ and SpinCore drivers are installed, do the following:
 
 1. Open Anaconda
 2. Activate your production environment
@@ -57,16 +56,15 @@ messages will be displayed when errors occur.
 
 #### Develop Environment Setup
 
-Once the NIDAQ and SpinCore drivers are installed, installation of the python
-software should be to simply run `pip install qt3-utils` from the command-line
+Once the NIDAQ and SpinCore drivers are installed, do the following:
 
 1. Open Anaconda
-2. Activate your production environment
+2. Activate your development environment
 3. Launch a Powershell
 4. Ensure the powershell prompt displays the correct environment name
 5. Navigate to a location on the filesystem where you want to perform development
   * For example, `> mkdir \Users\YOURNAME\projects; cd projects`
-6. Clone the git repository of interest.
+6. Clone the git repository of interest
   * For example `> git clone https://github.com/qt3uw/qt3-utils`
 
 Development after this step is up to you. You can install PyCharm or VSCode from
@@ -77,8 +75,9 @@ Anaconda, or work with something lighter like Atom.
 
 Control of laser power via ND filter wheel is done using 
 [qt3laserpowercontrol](https://github.com/qt3uw/qt3laserpowercontrol). This software 
-controls an ARDIUNO board that is connected via USB. The software needs to be 
-installed onto the ARDUINO board and then launched separately from the command line.
+controls an ARDIUNO board that is connected via USB to the QLM machine. 
+The software needs to be installed onto the ARDUINO board and then launched 
+separately from the command line.
 
 ##### Production Conda Environment Snapshots
 
