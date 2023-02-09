@@ -183,7 +183,10 @@ channel.state(1)
 pulser.system.state(1) #start the pulser
 ```
 
-The QC Sapphire is used extensively in the standard `qt3-utils` experiment objects.
+The QC Sapphire has limited functionality and is only useful for CWODMR, PulsedODMR
+and Rabi oscillations.
+It's not possible, based on our understanding, for this device to generate the 
+pulse sequences necessary for spin-echo, Ramsey, and dynamical decoupling. 
 
 
 ### Windfreak RF Synthesizer Control
@@ -209,6 +212,11 @@ rf_synth.rf_on(1)
 
 The [pulseblaster](https://github.com/qt3uw/pulseblaster) comes installed
 via qt3-utils. Usage can be found in the qt3utils example folder.
+The primary module within qt3utils is `src/qt3utils/pulsers/pulseblaster.py`
+where a number of classes have been defined which can set up pulse sequences
+for CWODMR, PulseODMR, Rabi, Ramsey, spin-echo and dynamical decoupling. 
+Those objects can be used with their corresponding experiment classes found 
+in `src/qt3utils/experiments`. 
 
 ### QT3 Laser Power Control
 
