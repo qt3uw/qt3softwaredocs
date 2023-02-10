@@ -70,6 +70,15 @@ Once the NIDAQ and SpinCore drivers are installed, do the following:
 Development after this step is up to you. You can install PyCharm or VSCode from
 Anaconda, or work with something lighter like Atom.
 
+When working on windows, you may need to set the execution policy of the Powershell
+so that it can run Anaconda configuration scripts when opening the Terminal 
+in PyCharm (and possibly other IDEs). 
+[See this page for more information](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7.3). 
+The command to run is
+
+```
+> Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+```
 
 #### Laser Power Control
 
