@@ -39,7 +39,7 @@ to the NIDAQ.
 
 The following packages have been developed
 
-* [qt3-utils](https://github.com/qt3uw/qt3utils)
+* [qt3-utils](https://github.com/qt3uw/qt3-utils)
 * [qt3rfsynthcontrol](https://github.com/qt3uw/qt3RFSynthControl)
 * [qcsapphire](https://github.com/qt3uw/qcsapphire)
 * [nipiezeojenapy](https://github.com/qt3uw/nipiezeojenapy)
